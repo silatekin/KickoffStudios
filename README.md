@@ -1,4 +1,4 @@
-# KickoffStudios
+# Kickoff Studios
 This is a group project for our Advanced Game Development class.
 
 # Content
