@@ -38,4 +38,12 @@ public class Movement : MonoBehaviour
         }
 
     }
+
+    
+    /*
+    void tackle()
+    {
+        transform.rotation
+    }
+    */
 }
