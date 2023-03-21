@@ -5,29 +5,40 @@ using UnityEngine;
 public class Tackling : MonoBehaviour
 {
     //seperated the definitions
-    [SerializedField] private GameObject Ball;
+    [SerializedField] private GameObject ball;
     [SerializedField] private float tackleForce = 500f;
 
-    public GameObject Ball;
+    //seperated rigidbody
+    private Rigidbody ballRigidbody;
+    
+    //called only once at the beginning
+    private void Awake()
+    {
+        ballRigidbody = ball.GetComponent<Rigidbody>();
+    }
+
     //collision
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if(IsCollidingWithBall(collision))
         {
-            Rigidbody BallRigidbody = Ball.GetComponent<Rigidbody>();
+            ApplyTackleForce();
         }
     }
     //isolated the collision
     private bool IsCollidingWithBall(Collision collision)
     {
-        return collision.gameObject == Ball;
+        return collision.gameObject == ball;
     }
+    
     //isolated force calculation and application
     private void ApplyTackleForce()
     {
         Vector3 force = transform.forward * tackleForce;
-        BallRigidbody.AddForce(force, ForceMode.Impulse);
+        ballRigidbody.AddForce(force, ForceMode.Impulse);
     }
+    //not used
+    /*
     // Start is called before the first frame update
     void Start()
     {
@@ -39,4 +50,5 @@ public class Tackling : MonoBehaviour
     {
         
     }
+    */
 }
