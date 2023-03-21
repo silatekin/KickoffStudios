@@ -5,8 +5,8 @@ using UnityEngine;
 public class Sprinting : MonoBehaviour
 {
     public bool isMoving = false;
-    public float movementSpeed = 5.0f; // default movement speed
-    public float sprintSpeed = 10f; // speed while sprinting
+    public float movementSpeed = 5.0f; 
+    public float sprintSpeed = 10f; //  sprinting speed
 
     private bool isSprinting = false;
 
@@ -19,7 +19,6 @@ public class Sprinting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-  // check for sprint input
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             isSprinting = true;
@@ -29,7 +28,7 @@ public class Sprinting : MonoBehaviour
             isSprinting = false;
         }
 
-        float speed = isSprinting ? sprintSpeed : moveSpeed;
+        float speed = isSprinting ? sprintSpeed : movementSpeed;
 
         float x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         float z = Input.GetAxis("Vertical") * speed * Time.deltaTime;
