@@ -5,8 +5,8 @@ using UnityEngine;
 public class Tackling : MonoBehaviour
 {
     //seperated the definitions
-    [SerializedField] private GameObject ball;
-    [SerializedField] private float tackleForce = 500f;
+    [SerializeField] private GameObject ball;
+    [SerializeField] private float tackleForce = 500f;
 
     //seperated rigidbody
     private Rigidbody ballRigidbody;
