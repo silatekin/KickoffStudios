@@ -12,10 +12,15 @@ public class Scoreboard : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("GoalPost"))
+        if (other.CompareTag("GoalPostM"))
         {
             transform.position = startingPosition;
             health -= goal;
+            healthBar.text = health.ToString();
+        }else if (other.CompareTag("GoalPostW"))
+        {
+            transform.position = startingPosition;
+            health += goal;
             healthBar.text = health.ToString();
         }
     }
