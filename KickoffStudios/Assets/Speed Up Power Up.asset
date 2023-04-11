@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3a1fbf948a171478ebec9c3fbd98c2, type: 3}
   m_Name: Speed Up Power Up
   m_EditorClassIdentifier: 
-  amount: 20
+  amount: 6
