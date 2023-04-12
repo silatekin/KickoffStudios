@@ -16,11 +16,13 @@ public class Scoreboard : MonoBehaviour
         {
             transform.position = startingPosition;
             health -= goal;
+            health = Mathf.Clamp(health, 0.0f, 100.0f);
             healthBar.text = health.ToString();
         }else if (other.CompareTag("GoalPostW"))
         {
             transform.position = startingPosition;
             health += goal;
+            health = Mathf.Clamp(health, 0.0f, 100.0f);
             healthBar.text = health.ToString();
         }
     }
