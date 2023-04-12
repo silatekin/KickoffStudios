@@ -6,9 +6,17 @@ using UnityEngine;
 
 public class SpeedUpPowerUp : PowerUpEffect
 {
+    public float duration;
     public float amount;
-    public override void Apply(GameObject target)
+    public override IEnumerator Apply(GameObject target, GameObject self)
     {
         target.GetComponent<Movement>().speed += amount;
+
+        self.GetComponent<MeshRenderer>().enabled = false;
+        self.GetComponent<Collider>().enabled = false;
+
+        yield return new WaitForSeconds(duration);
+        target.GetComponent<Movement>().speed -= amount;
+        
     }
 }
