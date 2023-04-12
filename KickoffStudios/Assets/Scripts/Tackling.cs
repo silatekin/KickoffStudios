@@ -6,7 +6,7 @@ public class Tackling : MonoBehaviour
 {
     //seperated the definitions
     [SerializeField] private float tackleForce = 1000f;
-    [SerializeField] private string tackleInput = "z";
+    [SerializeField] private KeyCode tackleInput = KeyCode.Z;
 
     /*
     private void Awake()
@@ -46,7 +46,7 @@ public class Tackling : MonoBehaviour
     }
     private bool IsButtonPressed()
     {
-        return Input.GetButtonDown(tackleInput);
+        return Input.GetKeyDown(tackleInput);
     }
     //not used
     /*
