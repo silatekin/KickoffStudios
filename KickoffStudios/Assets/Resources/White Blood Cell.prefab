@@ -116,8 +116,8 @@ GameObject:
   - component: {fileID: 335883859994661337}
   - component: {fileID: 5309255670670271181}
   m_Layer: 0
-  m_Name: WBC
-  m_TagString: Player
+  m_Name: White Blood Cell
+  m_TagString: WBC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

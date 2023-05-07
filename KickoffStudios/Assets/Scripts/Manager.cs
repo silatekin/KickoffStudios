@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
@@ -14,9 +15,11 @@ public class Manager : MonoBehaviourPunCallbacks
     public Transform microbeStartingPoint;
     public Transform WBCStartingPoint;
 
+    
 
     public void OnClick_MicrobeButton()
     {
+        cursorManagement();
         playerSelectionImage.SetActive(false);
         GameObject microbe =
             PhotonNetwork.Instantiate("Microbe",microbeStartingPoint.position, MicrobePrefab.transform.rotation);
@@ -24,9 +27,15 @@ public class Manager : MonoBehaviourPunCallbacks
     
     public void OnClick_WBCButton()
     {
+        cursorManagement();
         playerSelectionImage.SetActive(false);
         GameObject WBC =
             PhotonNetwork.Instantiate("White Blood Cell",WBCStartingPoint.position, WBCPrefab.transform.rotation);
     }
-    
+
+    private void cursorManagement()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 }

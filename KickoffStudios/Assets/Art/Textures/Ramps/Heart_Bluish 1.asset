@@ -9,40 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0810e87d9b9c44009e7af003b7a89b4, type: 3}
+  m_Script: {fileID: 0}
   m_Name: Heart_Bluish 1
   m_EditorClassIdentifier: 
-  gradient:
-    serializedVersion: 2
-    key0: {r: 0.6460063, g: 0.063545756, b: 0.7924528, a: 0}
-    key1: {r: 0.25915125, g: 0, b: 0.6037736, a: 0.028255709}
-    key2: {r: 0.40922037, g: 0.5937578, b: 0.7169812, a: 1}
-    key3: {r: 0, g: 0, b: 0, a: 1}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 578
-    ctime1: 19853
-    ctime2: 65535
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 12143
-    atime1: 15613
-    atime2: 46260
-    atime3: 53006
-    atime4: 65535
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 3
-    m_NumAlphaKeys: 5
-  width: 64
-  texture: {fileID: 28392345947452060}
 --- !u!28 &28392345947452060
 Texture2D:
   m_ObjectHideFlags: 0

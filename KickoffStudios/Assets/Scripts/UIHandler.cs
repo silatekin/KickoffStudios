@@ -10,6 +10,7 @@ public class UIHandler : MonoBehaviourPunCallbacks
     
     public InputField createRoomTF;
     public InputField joinRoomTF;
+    public GameObject mapSelection;
     
     
     public void OnClick_JoinRoom()
@@ -25,12 +26,22 @@ public class UIHandler : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         print("Room Joined Sucess");
-        PhotonNetwork.LoadLevel(1);
+        mapSelection.SetActive(true);
     }
     
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
         print("Room Joined Failed " + returnCode + " Message " + message);
+    }
+    
+    public void OnClick_HeartMap()
+    {
+        PhotonNetwork.LoadLevel(2);
+    }
+    
+    public void OnClick_StomachMap()
+    {
+        PhotonNetwork.LoadLevel(3);
     }
     
 }
