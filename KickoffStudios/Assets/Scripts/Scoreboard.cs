@@ -11,6 +11,8 @@ public class Scoreboard : MonoBehaviour
     public Transform startingPosition;
     public Text healthBar; 
     private Rigidbody rb;
+    public GameObject WinningScreen;
+    public GameObject LosingScreen;
 
     private void Start()
     {
@@ -24,14 +26,23 @@ public class Scoreboard : MonoBehaviour
             transform.position = startingPosition.position;
             rb.velocity = Vector3.zero;
             health -= goal;
-            health = Mathf.Clamp(health, 0.0f, 100.0f);
+            health = Mathf.Clamp(health, 0.0f, 200.0f);
             healthBar.text = health.ToString();
+
+            if (health == 195)
+            {
+                WinningScreen.SetActive(true);
+            }
         }else if (other.CompareTag("GoalPostW"))
         {
             transform.position = startingPosition.position;
             rb.velocity = Vector3.zero;
             health += goal;
-            health = Mathf.Clamp(health, 0.0f, 100.0f);
+            health = Mathf.Clamp(health, 0.0f, 200.0f);
+            if (health == 5)
+            {
+                LosingScreen.SetActive(true);
+            }
             healthBar.text = health.ToString();
         }
     }
