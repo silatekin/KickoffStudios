@@ -11,6 +11,7 @@ public class UIHandler : MonoBehaviourPunCallbacks
     public InputField createRoomTF;
     public InputField joinRoomTF;
     public GameObject mapSelection;
+    private int scene;
     
     
     public void OnClick_JoinRoom()
@@ -21,24 +22,27 @@ public class UIHandler : MonoBehaviourPunCallbacks
     public void OnClick_CreateRoom()
     {
         PhotonNetwork.CreateRoom(createRoomTF.text, new RoomOptions{ MaxPlayers = 2}, null,null);
+        
     }
 
     public override void OnJoinedRoom()
     {
-        print("Room Joined Sucess");
         mapSelection.SetActive(true);
+        print("Room Joined Sucess");
+        
     }
     
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
         print("Room Joined Failed " + returnCode + " Message " + message);
     }
-    
+   
+
     public void OnClick_HeartMap()
     {
         PhotonNetwork.LoadLevel(2);
     }
-    
+
     public void OnClick_StomachMap()
     {
         PhotonNetwork.LoadLevel(3);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
@@ -5,28 +6,38 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    public float mouseSensitivity;
-    public Transform playerBody;
-    private float xRotation = 0f;
-    
-    
-    // Start is called before the first frame update
-    void Start()
+    public Transform target; // Reference to the player's transform
+    public Vector3 offset = new Vector3(0f, 2f, -5f); // Offset from the player's position
+
+    public float smoothSpeed = 10f; // Speed at which the camera follows the player
+    public float rotationSpeed = 5f; // Speed at which the camera rotates
+
+    private Quaternion targetRotation; // Target rotation for the camera
+
+    void LateUpdate()
     {
-        
+        if (target == null)
+        {
+            return; // Exit if the target is not assigned
+        }
+
+        // Calculate the target position by adding the offset to the player's position
+        Vector3 targetPosition = target.position + offset;
+
+        // Smoothly move the camera towards the target position
+        transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
+
+        // Calculate the target rotation based on the player's rotation
+        targetRotation = Quaternion.Euler(0f, target.eulerAngles.y, 0f);
+
+        // Smoothly rotate the camera towards the target rotation
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
-    // Update is called once per frame
-    void Update()
-    {   
-            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-
-            xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        
-            transform.localRotation = Quaternion.Euler(xRotation, 0f,0f);
-            playerBody.Rotate(Vector3.up * mouseX);
-            
+    public void setTarget(Transform target)
+    {
+        this.target = target;
     }
+
+    
 }

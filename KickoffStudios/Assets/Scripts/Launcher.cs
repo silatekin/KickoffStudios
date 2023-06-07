@@ -19,6 +19,8 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         
         PhotonNetwork.JoinLobby();
+        
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     public override void OnDisconnected(DisconnectCause cause)

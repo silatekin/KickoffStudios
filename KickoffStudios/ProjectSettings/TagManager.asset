@@ -9,6 +9,7 @@ TagManager:
   - GoalPostW
   - Microbe
   - WBC
+  - Camera
   layers:
   - Default
   - TransparentFX

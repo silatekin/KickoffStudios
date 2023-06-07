@@ -7,10 +7,10 @@ public class Dribble : MonoBehaviour
 {
     public float speed = 5.0f;
     public float shootForce = 10.0f;
-
-    public GameObject ballLocation;    
     private bool ballAttached = false;
     private Rigidbody ballRb;
+    public GameObject ballLocation;    
+    
     private Vector3 ballOffset;
 
    
@@ -31,7 +31,6 @@ public class Dribble : MonoBehaviour
         if (ballAttached)
         {
             ballRb.MovePosition(ballLocation.transform.position);
-           // ballRb.MovePosition(transform.position - ballOffset);
         }
 
         if (Input.GetKeyDown(KeyCode.E))
